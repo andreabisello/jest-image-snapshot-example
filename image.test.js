@@ -6,10 +6,10 @@ describe('Google Test', () => {
 
     test("Google Logo", async () => {
         browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
             defaultViewport: {width: 1800, height: 900},
             args: ["--start-maximized"],
-            devtools: true
+            devtools: false
         })
         page = await browser.newPage()
         await page.goto("https://www.google.com", {
