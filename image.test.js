@@ -23,7 +23,7 @@ describe('Google Test', () => {
             failureThresholdType: "percent",
             diffDirection: "vertical"
         })
-        browser.close()
+        await browser.close()
 
     })
 
