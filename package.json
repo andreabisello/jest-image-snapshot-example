@@ -18,7 +18,7 @@
   "homepage": "https://github.com/andreabisello/jest-image-snapshot-example#readme",
   "dependencies": {
     "jest": "^24.9.0",
-    "jest-image-snapshot": "^2.11.0",
+    "jest-image-snapshot": "^2.11.1",
     "puppeteer": "^2.0.0"
   }
 }

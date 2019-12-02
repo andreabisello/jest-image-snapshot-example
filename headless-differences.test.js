@@ -7,7 +7,7 @@ describe('headless differences Test', () => {
     test("headless and not headless screenshot should to be the same", async () => {
         jest.setTimeout(15000)
         browser = await puppeteer.launch({
-            headless: true,
+            headless: false,
             defaultViewport: {width: 1800, height: 900},
             args: ["--start-maximized"],
             devtools: false
@@ -18,15 +18,18 @@ describe('headless differences Test', () => {
             waitUntil: ['load', 'domcontentloaded', 'networkidle0', 'networkidle2']
         })
         loginBox = await page.waitForSelector('#loginBox', {visible: true, timeout:30000})
+
+        //removing time variant area
+        await page.evaluate(() => {
+            document.querySelector('#lblNow').style.visibility = "hidden"
+        })
+
+        //taking screenshot
         const loginBoxScreenshot = await loginBox.screenshot()
         expect(loginBoxScreenshot).toMatchImageSnapshot({
             failureThreshold: 0,
-            failureThresholdType: "percent",
-            diffDirection: "vertical"
+            failureThresholdType: "percent"
         })
         await browser.close()
-
     })
-
-
 })
