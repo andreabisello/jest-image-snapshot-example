@@ -1,8 +1,4 @@
 const puppeteer = require('puppeteer-extra')
-const { toMatchImageSnapshot } = require('jest-image-snapshot');
-//const StealthPlugin = require('puppeteer-extra-plugin-stealth')
-//puppeteer.use(StealthPlugin())
-expect.extend({ toMatchImageSnapshot });
 
 describe('headless differences Test', () => {
 
@@ -19,7 +15,7 @@ describe('headless differences Test', () => {
             timeout: 20000,
             waitUntil: ['load', 'domcontentloaded', 'networkidle0', 'networkidle2']
         })
-        await page.waitFor(20000)
+        await page.waitFor(5000)
         loginBox = await page.waitForSelector('#loginBox', {visible: true, timeout:30000})
 
         //removing time variant area
@@ -31,15 +27,6 @@ describe('headless differences Test', () => {
             path:"gui.png"
         })
 
-        //taking screenshot
-        /*
-        const loginBoxScreenshot = await loginBox.screenshot()
-        expect(loginBoxScreenshot).toMatchImageSnapshot({
-            failureThreshold: 0,
-            failureThresholdType: "percent",
-            blur:10
-        })
-        */
         await browser.close()
     })
 })
