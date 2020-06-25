@@ -19,6 +19,6 @@
   "dependencies": {
     "jest": "latest",
     "puppeteer": "latest",
-    "puppeteer-extra": "latestnpn"
+    "puppeteer-extra": "latest"
   }
 }
