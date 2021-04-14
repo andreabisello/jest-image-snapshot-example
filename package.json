@@ -19,6 +19,7 @@
   "dependencies": {
     "jest": "latest",
     "puppeteer": "latest",
-    "puppeteer-extra": "latest"
+    "puppeteer-extra": "latest",
+    "jest-image-snapshot": "latest"
   }
 }
